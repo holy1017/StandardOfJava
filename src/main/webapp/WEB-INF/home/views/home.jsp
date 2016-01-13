@@ -11,5 +11,11 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
+	<ol>
+	
+		<li><a href="java/standard/">java/standard/ 자바의 정석</a></li>
+
+	</ol>
 </body>
 </html>
