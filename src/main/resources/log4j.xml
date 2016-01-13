@@ -11,7 +11,11 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.standard.java">
+	<logger name="com.java.standard">
+		<level value="debug" />
+	</logger>
+	
+	<logger name="com.home">
 		<level value="info" />
 	</logger>
 	

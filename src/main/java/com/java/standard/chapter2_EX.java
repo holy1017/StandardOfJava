@@ -15,6 +15,7 @@ public class chapter2_EX {
 	/**
 	 * @return
 	 * 		¹®ÀÚÇü EX_2_1
+	 * http://localhost:8080/standardofjava/java/standard/ex2/1
 	 */
 	@RequestMapping(value = "/1")
 	// @ResponseBody
@@ -26,7 +27,7 @@ public class chapter2_EX {
 		log.debug("char : {}", ch); // A
 		log.debug("int code : {}", code); // 65
 
-		return null;
+		return "result";
 	}
 
 	/**
