@@ -3,6 +3,7 @@ package com.java.JSPAndServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,23 +22,27 @@ public class chapterHome {
 	}*/
 
 	@RequestMapping(value = "/")//, method = RequestMethod.GET
-	public String HomeForward(@RequestParam(value="page", required=false) String page) {
+	public String HomeForward(@RequestParam(value="ch", required=false) String ch) {
 		//@RequestParam("page") String page
 		
-		log.debug("HomeForward:"+page);
+		log.debug("HomeForward:ch"+ch);
 		
-		if (page != null) {
-			return "forward:" + page;
+		if (ch != null) {
+			return "forward:ch" + ch;
 		}/**/
 
 		return "home";
 	}
 
 	@RequestMapping(value = "/{url}")
-	public String HomePath(@PathVariable String url) {
+	public String HomePath(@PathVariable String url,Model model) {
 		
 		log.debug("HomePath:"+url);
 		
+		model.addAttribute("cnt", 1);
+		
 		return url;
 	}
+	
+	
 }
