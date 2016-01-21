@@ -1,15 +1,15 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
-<title>7장</title>
+	<title>Result</title>
 </head>
 <body>
+<h1>
+	Hello world!  This is result page.
+</h1>
 
-	<h1>세션01</h1>
-
-	<P>${cnt+1}</P>
-
+<P>  result : ${result}. </P>
 </body>
 </html>

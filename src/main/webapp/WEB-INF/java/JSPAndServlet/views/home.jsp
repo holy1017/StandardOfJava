@@ -12,8 +12,8 @@
 
 	<ol>
 
-<!-- 		<li><a href="ch2/1">ex2/1 선언</a></li>
-		<li><a href="ch2/2">ex2/2 변수 타입</a></li>
+ 		<li><a href="?page=ch7">ex7 선언</a></li>
+<!--		<li><a href="ch2/2">ex2/2 변수 타입</a></li>
 		<li><a href="ch2/2/3">ex2/2/3 문자형</a></li>
 		<li><a href="ex2/1">ex2/1 char->int</a></li>
 		<li><a href="ex2/2">ex2/2 char<-int</a></li>

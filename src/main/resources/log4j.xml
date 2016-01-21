@@ -11,7 +11,13 @@
 	</appender>
 	
 	<!-- Application Loggers -->
+	
+	<!-- 자바의 정석 로거 -->
 	<logger name="com.java.standard">
+		<level value="debug" />
+	</logger>
+	
+	<logger name="com.java.JSPAndServlet">
 		<level value="debug" />
 	</logger>
 	
