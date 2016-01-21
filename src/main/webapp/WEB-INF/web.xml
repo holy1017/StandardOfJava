@@ -56,4 +56,20 @@
 		<servlet-name>java_standard</servlet-name>
 		<url-pattern>/java/standard/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- JSPAndServlet -->
+	<servlet>
+		<servlet-name>JSPAndServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/java/JSPAndServlet/servlet/servlet-JSPAndServlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>JSPAndServlet</servlet-name>
+		<url-pattern>/java/JSPAndServlet/*</url-pattern>
+	</servlet-mapping>
 </web-app>
