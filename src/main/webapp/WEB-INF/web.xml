@@ -51,6 +51,16 @@
 		<url-pattern>/java/JSPAndServlet/ch11/test1/*</url-pattern>
 		<url-pattern>*.chapter11test1</url-pattern>
 	</filter-mapping>
+	
+	<!-- 이런형식도 가능. or 방식. 테스트 못해봄-->
+	<filter-mapping>
+		<filter-name>chapter11</filter-name>
+		<url-pattern>*.chapter11test1</url-pattern>
+		<dispatcher>ERROR</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 
 	<!-- The definition of the Root Spring Container shared by all Servlets
 		and Filters -->

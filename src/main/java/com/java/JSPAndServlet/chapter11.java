@@ -3,6 +3,7 @@ package com.java.JSPAndServlet;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.GregorianCalendar;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -69,9 +70,21 @@ public class chapter11 implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain ch) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		wr.println("doFilter");
 		log.debug("doFilter 시작 부분");
+		
+//		wr.println("doFilter:getRemoteAddr:"+req.getRemoteAddr());
+//		wr.println("doFilter:getContentType:"+req.getContentType());
+		
+		GregorianCalendar now=new GregorianCalendar();
+
+		wr.printf("%TF %TT ", now,now);
+		wr.printf("%s ", req.getRemoteAddr());
+		
 		ch.doFilter(req, res);
+		
+		wr.printf("%s ", req.getContentType());
+		wr.println();
+		
 		log.debug("doFilter 끝 부분");
 	}
 
