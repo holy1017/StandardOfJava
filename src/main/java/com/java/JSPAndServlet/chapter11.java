@@ -11,6 +11,9 @@ import javax.servlet.ServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author lilly_000
@@ -31,6 +34,9 @@ import org.slf4j.LoggerFactory;
  *         <url-pattern>필터패턴</url-pattern>
  *         </filter-mapping>
  */
+
+@Controller
+@RequestMapping(value = "/ch11/*")
 public class chapter11 implements Filter {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -71,7 +77,13 @@ public class chapter11 implements Filter {
 	@Override
 	public void init(FilterConfig con) throws ServletException {
 		// TODO Auto-generated method stub
-		log.debug("init ");
+		log.debug("init 메소드 실행");
 	}
 
+	@RequestMapping(value = "/test/*")
+	public String test(RedirectAttributes re) {
+		log.debug("test 메소드 실행");
+		re.addFlashAttribute("result", this.getClass()+"클래스의 test메소드에서 실행됨");
+		return "redirect:../../";
+	}
 }

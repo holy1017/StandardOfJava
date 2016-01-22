@@ -24,7 +24,7 @@
 	<!-- 이런형식도 가능 -->
 	<filter-mapping>
 		<filter-name>chapter11</filter-name>
-		<url-pattern>/java/JSPAndServlet/chapter11/test/*</url-pattern>
+		<url-pattern>/java/JSPAndServlet/ch11/test/*</url-pattern>
 	</filter-mapping>
 	
 	<!-- 이런형식도 가능 -->
@@ -43,7 +43,7 @@
 	<filter-mapping>
 		<filter-name>chapter11</filter-name>
 		<servlet-name>JSPAndServletTest</servlet-name>
-		<url-pattern>/java/JSPAndServlet/chapter11/test1/*</url-pattern>
+		<url-pattern>/java/JSPAndServlet/ch11/test1/*</url-pattern>
 		<url-pattern>*.chapter11test1</url-pattern>
 	</filter-mapping>
 
