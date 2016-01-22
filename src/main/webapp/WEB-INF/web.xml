@@ -11,9 +11,14 @@
 	<!-- Filters -->
 	
 	<!-- chapter11 실습용 필터 -->
+	<!-- C:\eclipse\eclipse.exe 프로그램이 있는경로에 로그 출력됨... -->
 	<filter>
 		<filter-name>chapter11</filter-name>
 		<filter-class>com.java.JSPAndServlet.chapter11</filter-class>
+		<init-param>
+		<param-name>FILE_NAME</param-name>
+		<param-value>chapter11.log</param-value>
+		</init-param>
 	</filter>
 
 	<filter-mapping>

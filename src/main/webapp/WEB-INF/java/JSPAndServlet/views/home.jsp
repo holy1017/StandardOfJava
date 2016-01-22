@@ -13,7 +13,7 @@
 	<ol>
 
  		<li><a href="?ch=7">ex7 선언</a></li>
-		<li><a href="ch11/test/">ch11/test/</a></li>
+		<li><a href="ch11/test/">ch11/test/ 필터 테스트. 콘솔 확인하기.</a></li>
 	<!--	<li><a href="ch2/2/3">ex2/2/3 문자형</a></li>
 		<li><a href="ex2/1">ex2/1 char->int</a></li>
 		<li><a href="ex2/2">ex2/2 char<-int</a></li>

@@ -1,6 +1,8 @@
 package com.java.JSPAndServlet;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -41,6 +43,8 @@ public class chapter11 implements Filter {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	PrintWriter wr;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -51,6 +55,8 @@ public class chapter11 implements Filter {
 	public void destroy() {
 		// TODO Auto-generated method stub
 		log.debug("destroy");
+		wr.println("destroy");
+		wr.close();
 	}
 
 	/*
@@ -63,6 +69,7 @@ public class chapter11 implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain ch) throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		wr.println("doFilter");
 		log.debug("doFilter 시작 부분");
 		ch.doFilter(req, res);
 		log.debug("doFilter 끝 부분");
@@ -78,12 +85,30 @@ public class chapter11 implements Filter {
 	public void init(FilterConfig con) throws ServletException {
 		// TODO Auto-generated method stub
 		log.debug("init 메소드 실행");
+
+		String fileName = con.getInitParameter("FILE_NAME");
+		if (fileName == null) {
+			throw new ServletException("로그 파일 못찿음.");
+		}
+		try {
+			wr = new PrintWriter(new FileWriter(fileName, true), true);
+		} catch (IOException e) {
+			// TODO: handle exception
+			throw new ServletException("로그 파일 못열음.");
+		}
+
+		wr.println("init");
 	}
 
+	/**
+	 * @param re
+	 * @return
+	 * 		필터 부르기 예제용
+	 */
 	@RequestMapping(value = "/test/*")
 	public String test(RedirectAttributes re) {
 		log.debug("test 메소드 실행");
-		re.addFlashAttribute("result", this.getClass()+"클래스의 test메소드에서 실행됨");
+		re.addFlashAttribute("result", this.getClass() + "클래스의 test메소드에서 실행됨");
 		return "redirect:../../";
 	}
 }
