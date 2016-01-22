@@ -3,10 +3,51 @@
 	version="2.5"
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="
+	http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 >
 
-	<!-- The definition of the Root Spring Container shared by all Servlets 
+	<!-- Filters -->
+	
+	<!-- chapter11 실습용 필터 -->
+	<filter>
+		<filter-name>chapter11</filter-name>
+		<filter-class>com.java.JSPAndServlet.chapter11</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>chapter11</filter-name>
+		<servlet-name>JSPAndServlet</servlet-name>
+	</filter-mapping>
+	
+	<!-- 이런형식도 가능 -->
+	<filter-mapping>
+		<filter-name>chapter11</filter-name>
+		<url-pattern>/java/JSPAndServlet/chapter11/test/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 이런형식도 가능 -->
+	<filter-mapping>
+		<filter-name>chapter11</filter-name>
+		<url-pattern>*.chapter11test</url-pattern>
+	</filter-mapping>
+	
+	<!-- 이런건  Invalid 에러 띄움  -->
+<!-- 	<filter-mapping>
+		<filter-name>chapter11</filter-name>
+		<url-pattern>/java/JSPAndServlet/chapter11/*.test</url-pattern>
+	</filter-mapping> -->
+	
+	<!-- 섞어 쓰기 가능 -->
+	<filter-mapping>
+		<filter-name>chapter11</filter-name>
+		<servlet-name>JSPAndServletTest</servlet-name>
+		<url-pattern>/java/JSPAndServlet/chapter11/test1/*</url-pattern>
+		<url-pattern>*.chapter11test1</url-pattern>
+	</filter-mapping>
+
+	<!-- The definition of the Root Spring Container shared by all Servlets
 		and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -34,7 +75,7 @@
 		<servlet-name>home</servlet-name>
 		<url-pattern>/home/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- 기본 주소값 설정 -->
 	<servlet-mapping>
 		<servlet-name>home</servlet-name>
@@ -56,7 +97,7 @@
 		<servlet-name>java_standard</servlet-name>
 		<url-pattern>/java/standard/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- JSPAndServlet -->
 	<servlet>
 		<servlet-name>JSPAndServlet</servlet-name>
@@ -71,5 +112,21 @@
 	<servlet-mapping>
 		<servlet-name>JSPAndServlet</servlet-name>
 		<url-pattern>/java/JSPAndServlet/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- JSPAndServlet 필터 테스트용 -->
+	<servlet>
+		<servlet-name>JSPAndServletTest</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/java/JSPAndServlet/servlet/servlet-JSPAndServlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>JSPAndServletTest</servlet-name>
+		<url-pattern>/java/JSPAndServlet/test/*</url-pattern>
 	</servlet-mapping>
 </web-app>
